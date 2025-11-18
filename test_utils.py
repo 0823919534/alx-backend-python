@@ -2,14 +2,14 @@
 """Unit tests for access_nested_map function."""
 
 import unittest
-from parameterized import parameterized
+from parameterized import parameterized as param
 from utils import access_nested_map
 
 
 class TestAccessNestedMap(unittest.TestCase):
     """Test case for access_nested_map."""
 
-    @parameterized.expand([
+    @param.expand([
         ({"a": 1}, ("a",), 1),
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
         ({"a": {"b": 2}}, ("a", "b"), 2),
@@ -18,7 +18,7 @@ class TestAccessNestedMap(unittest.TestCase):
         """Test that access_nested_map returns expected values."""
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
-    @parameterized.expand([
+    @param.expand([
         ({}, ("a",)),
         ({"a": 1}, ("a", "b")),
     ])
