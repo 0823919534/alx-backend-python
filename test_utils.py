@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Unit tests for the access_nested_map function."""
+"""Unit tests for access_nested_map function."""
 
 import unittest
 from parameterized import parameterized
@@ -7,7 +7,7 @@ from utils import access_nested_map
 
 
 class TestAccessNestedMap(unittest.TestCase):
-    """Test case for the access_nested_map utility."""
+    """Test case for access_nested_map."""
 
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
@@ -31,3 +31,4 @@ class TestAccessNestedMap(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
