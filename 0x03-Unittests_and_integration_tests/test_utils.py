@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+import os
+import sys
+# Ensure the directory containing this file is first on sys.path so local imports work
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 """Unit tests for the access_nested_map function."""
 
 import unittest
