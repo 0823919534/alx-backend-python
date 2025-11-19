@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Unit tests for access_nested_map function."""
+"""Unit tests for access_nested_map function (canonical)."""
 
 import os
 import sys
 
-# Ensure the tests can import the local utils module regardless of how tests are run.
-# Insert the directory containing this file at the front of sys.path.
+# make sure local utils module is importable when this file is run directly
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import unittest
@@ -38,3 +37,4 @@ class TestAccessNestedMap(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
