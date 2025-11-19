@@ -13,3 +13,4 @@ def access_nested_map(nested_map: Mapping, path: tuple) -> Any:
             raise KeyError(key)
         current = current[key]
     return current
+
