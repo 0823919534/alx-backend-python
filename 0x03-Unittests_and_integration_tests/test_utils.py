@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
-"""Unit tests for access_nested_map function (canonical)."""
-
-import os
-import sys
-
-# make sure local utils module is importable when this file is run directly
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+"""Unit tests for the access_nested_map function."""
 
 import unittest
 from parameterized import parameterized
@@ -13,7 +7,7 @@ from utils import access_nested_map
 
 
 class TestAccessNestedMap(unittest.TestCase):
-    """Test case for access_nested_map."""
+    """Tests for the access_nested_map helper."""
 
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
@@ -21,7 +15,7 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a", "b"), 2),
     ])
     def test_access_nested_map(self, nested_map, path, expected):
-        """Test that access_nested_map returns expected values."""
+        """Return the value at the requested nested path for valid inputs."""
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
     @parameterized.expand([
@@ -29,7 +23,7 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": 1}, ("a", "b")),
     ])
     def test_access_nested_map_exception(self, nested_map, path):
-        """Test that access_nested_map raises KeyError for invalid paths."""
+        """Raise KeyError when the requested path cannot be resolved."""
         with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
         self.assertEqual(str(context.exception), repr(path[-1]))
@@ -37,5 +31,4 @@ class TestAccessNestedMap(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
 
