@@ -5,7 +5,6 @@ import unittest
 from unittest.mock import patch
 from utils import memoize
 
-
 class TestMemoize(unittest.TestCase):
     """Tests for the memoize decorator."""
 
@@ -16,6 +15,7 @@ class TestMemoize(unittest.TestCase):
             def a_method(self):
                 return 42
 
+            @property
             @memoize
             def a_property(self):
                 return self.a_method()
@@ -26,11 +26,10 @@ class TestMemoize(unittest.TestCase):
             v1 = obj.a_property
             v2 = obj.a_property
 
-            self.assertEqual(v1, 42)
-            self.assertEqual(v2, 42)
+            assert v1 == 42
+            assert v2 == 42
 
             mock_method.assert_called_once()
-
 
 if __name__ == "__main__":
     unittest.main()
