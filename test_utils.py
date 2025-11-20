@@ -5,7 +5,6 @@ import unittest
 from unittest.mock import patch
 from utils import memoize
 
-
 class TestMemoize(unittest.TestCase):
     """Tests for the memoize decorator."""
 
@@ -31,6 +30,6 @@ class TestMemoize(unittest.TestCase):
 
             mock_method.assert_called_once()
 
-
 if __name__ == "__main__":
     unittest.main()
+
