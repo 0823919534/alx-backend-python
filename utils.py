@@ -4,7 +4,6 @@
 from functools import wraps
 from typing import Any, Callable
 
-
 def memoize(func: Callable) -> Callable:
     """Cache the result of a no-argument instance method."""
     cache_attr = "_memoized_" + func.__name__
