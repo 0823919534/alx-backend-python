@@ -6,31 +6,33 @@ from unittest.mock import patch
 from utils import memoize
 
 class TestMemoize(unittest.TestCase):
-    """Tests for the memoize decorator."""
+"""Tests for the memoize decorator."""
 
-    def test_memoize(self):
-        """Ensure memoize caches result and calls underlying method only once."""
+```
+def test_memoize(self):
+    """Ensure memoize caches result and calls underlying method only once."""
 
-        class TestClass:
-            def a_method(self):
-                return 42
+    class TestClass:
+        def a_method(self):
+            return 42
 
-            @property
-            @memoize
-            def a_property(self):
-                return self.a_method()
+        @memoize
+        def a_property(self):
+            return self.a_method()
 
-        obj = TestClass()
 
-        with patch.object(TestClass, "a_method", return_value=42) as mock_method:
-            v1 = obj.a_property
-            v2 = obj.a_property
+    obj = TestClass()
 
-            assert v1 == 42
-            assert v2 == 42
+    with patch.object(TestClass, "a_method", return_value=42) as mock_method:
+        result1 = obj.a_property()
+        result2 = obj.a_property()
 
-            mock_method.assert_called_once()
+        self.assertEqual(result1, 42)
+        self.assertEqual(result2, 42)
 
-if __name__ == "__main__":
-    unittest.main()
+        mock_method.assert_called_once()
+```
+
+if **name** == "**main**":
+unittest.main()
 
