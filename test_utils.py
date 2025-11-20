@@ -5,11 +5,12 @@ import unittest
 from unittest.mock import patch
 from utils import memoize
 
+
 class TestMemoize(unittest.TestCase):
-    """Tests for the memoize decorator."""
+    """Test case for memoize decorator."""
 
     def test_memoize(self):
-        """Ensure memoize caches result and calls underlying method only once."""
+        """Test that memoize caches a method's result."""
 
         class TestClass:
             def a_method(self):
@@ -29,6 +30,7 @@ class TestMemoize(unittest.TestCase):
             self.assertEqual(result2, 42)
 
             mock_method.assert_called_once()
+
 
 if __name__ == "__main__":
     unittest.main()
